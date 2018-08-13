@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car Tube</title>
+    <link rel="stylesheet" href="style/site.css">
+    <link rel="stylesheet" href="style/welcome.css">
+    <link rel="stylesheet" href="style/car-listings.css">
+    <link rel="stylesheet" href="style/login-register.css">
+    <link rel="stylesheet" href="style/my-listings.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/navigation.css">
+    <link rel="stylesheet" href="style/notifications.css">
+    <link rel="stylesheet" href="style/listing-details.css">
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="scripts/notifications.js"></script>
+    <script src="scripts/attachEvents.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/kinveyRequester.js"></script>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <nav>
+            <a class="active" id="home" href="#">Home</a>
+            <a id="allLists" href="#">All Listings</a>
+            <a id="myLists" href="#">My Listings</a>
+            <a id="createLists" href="#">Create Listing</a>
+            <div id="profile">
+                <a id="welcome">Welcome username</a>
+                <a id="logout" href="#">logout</a>
+            </div>
+        </nav>
+
+        <div id="main">
+            <div id="welcome-container">
+                <h1>Welcome To Car Tube</h1>
+                <img src="./style/images/finance-car.png" alt="carIntro">
+                <h2>Login or register to check out our listings or to make one</h2>
+                <div id="button-div">
+                    <a href="#" id="loginBtn" class="button">Login</a>
+                    <a href="#" id="registerBtn" class="button">Register</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="login">
+            <form action="#" method="post">
+                <div class="container">
+                    <h1>Login</h1>
+                    <p>Please enter your credentials.</p>
+                    <hr>
+
+                    <p>Username</p>
+                    <input placeholder="Enter Username" name="username" type="text">
+
+                    <p>Password</p>
+                    <input type="password" placeholder="Enter Password" name="password">
+                    <button type="submit" class="registerbtn">Login</button>
+                </div>
+
+                <div class="container signin">
+                    <p>Dont have an account?
+                        <a id="registerBtn2" href="#">Sign up</a>.</p>
+                </div>
+            </form>
+        </div>
+
+        <div id="register">
+            <form>
+                <div class="container">
+                    <h1>Register</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <hr>
+
+                    <p>Username</p>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+
+                    <p>Password</p>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+
+                    <p>Repeat Password</p>
+                    <input type="password" placeholder="Repeat Password" name="repeatPass" required>
+                    <hr>
+
+                    <button type="submit" class="registerbtn">Register</button>
+                </div>
+                <div class="container signin">
+                    <p>Already have an account?
+                        <a id="loginBtn2" href="#">Sign in</a>.</p>
+                </div>
+            </form>
+        </div>
+
+        <div id="car-listings">
+            <h1>Car Listings</h1>
+
+            <div id="listings">
+
+            </div>
+        </div>
+
+        <div id="create-listing">
+            <form>
+                <div class="container">
+                    <h1>Create Car Listing</h1>
+                    <p>Please fill in this form to create an listing.</p>
+                    <hr>
+
+                    <p>Title</p>
+                    <input type="text" placeholder="Enter Title" name="title">
+
+                    <p>Description</p>
+                    <input type="text" placeholder="Enter Description" name="description">
+
+                    <p>Car Brand</p>
+                    <input type="text" placeholder="Enter Car Brand" name="brand">
+
+                    <p>Car Model</p>
+                    <input type="text" placeholder="Enter Car Model" name="model">
+
+                    <p>Car Year</p>
+                    <input type="number" placeholder="Enter Car Year" name="year">
+
+                    <p>Car Image</p>
+                    <input type="text" placeholder="Enter Car Image" name="imageUrl">
+
+                    <p>Car Fuel Type</p>
+                    <input type="text" placeholder="Enter Car Fuel Type" name="fuelType">
+
+                    <p>Car Price</p>
+                    <input type="number" placeholder="Enter Car Price" name="price">
+
+                    <hr>
+                    <button type="submit" class="registerbtn">Create Listing</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="edit-listing">
+            <form>
+
+                <div class="container">
+                    <h1>Edit Car Listing</h1>
+                    <p>Please fill in this form to edit an listing.</p>
+                    <hr>
+                    <input type="hidden" name="carId" value="" />
+
+                    <p>Title</p>
+                    <input type="text" placeholder="Enter Title" name="title" value="">
+
+                    <p>Description</p>
+                    <input type="text" placeholder="Enter Description" name="description" value="">
+
+                    <p>Car Brand</p>
+                    <input type="text" placeholder="Enter Car Brand" name="brand" value="">
+
+                    <p>Car Model</p>
+                    <input type="text" placeholder="Enter Car Model" name="model" value="">
+
+                    <p>Car Year</p>
+                    <input type="number" placeholder="Enter Car Year" name="year" value="">
+
+                    <p>Car Image</p>
+                    <input type="text" placeholder="Enter Car Image" name="imageUrl" value="">
+
+                    <p>Car Fuel Type</p>
+                    <input type="text" placeholder="Enter Car Fuel Type" name="fuelType" value="">
+
+                    <p>Car Price</p>
+                    <input type="number" placeholder="Enter Car Price" name="price" value="">
+
+                    <hr>
+                    <button type="submit" class="registerbtn">Edit Listing</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="my-listings">
+            <h1>My car listings</h1>
+            <div class="car-listings">
+                <!--<div class="my-listing">-->
+                    <!--<p id="listing-title">Audi a3 много запазено</p>-->
+                    <!--<img src="https://i.imgur.com/drIOsYl.jpg">-->
+
+                    <!--<div class="listing-props">-->
+                        <!--<h2>Brand: Audi</h2>-->
+                        <!--<h3>Model: a3</h3>-->
+                        <!--<h3>Year: 1998</h3>-->
+                        <!--<h3>Price: 2500$</h3>-->
+                    <!--</div>-->
+                    <!--<div class="my-listing-buttons">-->
+                        <!--<a href="#" class="my-button-list">Details</a>-->
+                        <!--<a href="#" class="my-button-list">Edit</a>-->
+                        <!--<a href="#" class="my-button-list">Delete</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<p class="no-cars"> No cars in database.</p>-->
+            </div>
+        </div>
+
+        <div class="listing-details">
+            <!--<div class="my-listing-details">-->
+                <!--<p id="auto-title">Audi a3 много запазено</p>-->
+                <!--<img src="https://i.imgur.com/drIOsYl.jpg">-->
+                <!--<div class="listing-props">-->
+                    <!--<h2>Brand: Audi</h2>-->
+                    <!--<h3>Model: a3</h3>-->
+                    <!--<h3>Year: 1998</h3>-->
+                    <!--<h3>Fuel: Gasoline</h3>-->
+                    <!--<h3>Price: 2500$</h3>-->
+                <!--</div>-->
+                <!--<div class="listings-buttons">-->
+
+                    <!--<a href="#" class="button-list">Edit</a>-->
+                    <!--<a href="#" class="button-list">Delete</a>-->
+
+
+                <!--</div>-->
+                <!--<p id="description-title">Description:</p>-->
+                <!--<p id="description-para">Не съм навъртал на колата 100000км в никакъв случай. Като нова е</p>-->
+
+            <!--</div>-->
+        </div>
+
+
+        <div class="footer">
+            <p>Created by MarikMayhem</p>
+        </div>
+
+    </div>
+
+    <div id="notifications">
+        <div id="loadingBox" class="notification">
+            <span>Loading …</span>
+        </div>
+        <div id="infoBox" class="notification">
+            <span>Info</span>
+        </div>
+        <div id="errorBox" class="notification">
+            <span>Error</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
